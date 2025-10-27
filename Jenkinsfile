@@ -10,7 +10,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo "Cloning repository..."
-                git branch: 'main', url: 'https://github.com/Big-Thunder/devops-assignment-8.git'
+                git branch: 'main', url: 'https://github.com/Vivaanfbcmc/devops-assignment-8.git'
             }
         }
 
