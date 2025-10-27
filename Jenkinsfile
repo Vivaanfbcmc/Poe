@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                echo "📦 Cloning repository..."
+                echo "Cloning repository..."
                 git branch: 'main', url: 'https://github.com/Big-Thunder/devops-assignment-8.git'
             }
         }
@@ -25,7 +25,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                echo "🚀 Running Docker container..."
+                echo "Running Docker container..."
                 bat """
                     docker rm -f ${CONTAINER_NAME} || exit 0
                     docker run -d --name ${CONTAINER_NAME} -p 9090:80 ${DOCKER_IMAGE}
@@ -36,14 +36,14 @@ pipeline {
 
     post {
         always {
-            echo "📋 Displaying all containers..."
+            echo "Displaying all containers..."
             bat 'docker ps -a'
         }
         success {
-            echo "✅ Pipeline executed successfully!"
+            echo "Pipeline executed successfully!"
         }
         failure {
-            echo "❌ Pipeline failed. Please check the logs."
+            echo "Pipeline failed. Please check the logs."
         }
     }
 }
